@@ -1,5 +1,100 @@
-<h1>EmailSender#complaintNewNotification</h1>
+<div style="width:100%; background-color:#DF1E39; height:auto">
+    <img  alt="benedettis_online" width="300" src="https://online.benedettis.com/online/images/logo_aux.png">
+</div>
+<br />
+<div style='color:#000; width:100%;'>
+    <p style="font-size:18px;">Se ha registrado una incidencia con los siguientes datos:</p>
+</div>
 
-<p>
-  <%= @greeting %>, find me in app/views/email_sender_mailer/complaintNewNotification.html.erb
-</p>
+<fieldset style="font-size:15px; color:#000; border-style:dashed; border-width: 1px; border-color:#bdbdbd; width:97%;">
+    <legend>Resumen de la incidencia</legend>
+
+    <div style="width:100%; margin-left: 10px">
+        <div style="padding-top:10px;">
+            <span style="color:#008651;font-size:15px;font-weight: normal; ">#Incidencia </span>
+            <br />
+            <span style="color:#9e9e9e; font-size:13px; margin-left: 0px"><%="#{"%08d" % @dataSending['complaint']['id_queja'] }"%> </span>
+
+        </div>
+
+        <div style="padding-top:10px;">
+            <span style="color:#008651;font-size:15px;font-weight: normal; ">Fecha de registro </span>
+            <br />
+            <span style="color:#9e9e9e; font-size:13px; margin-left: 0px"><%=@dataSending['complaint']['fechaqueja']%> </span>
+
+        </div>
+        
+        <div style="padding-top:10px;">
+            <span style="color:#008651;font-size:15px;font-weight: normal; ">Sucursal </span>
+            <br />
+            <span style="color:#9e9e9e; font-size:13px; margin-left: 0px"><%= "#{@dataSending['complaint']['id_unidad']} #{@dataSending['storeName']}"  %></span>
+
+        </div>
+         <div style="padding-top:10px;">
+            <span style="color:#008651;font-size:15px;font-weight: normal; ">Zona </span>
+            <br />
+            <span style="color:#9e9e9e; font-size:13px; margin-left: 0px"><%=@dataSending['complaint']['nomzona']%> </span>
+
+        </div>
+        <div style="padding-top:10px;">
+            <span style="color:#008651;font-size:15px;font-weight: normal; ">Tipo de incidencia </span>
+            <br />
+            <span style="color:#9e9e9e; font-size:13px; margin-left: 0px"><%=@dataSending['complaint']['descripcion_tipoqueja']%> </span>
+
+        </div>
+       
+        <div style="padding-top:10px;">
+            <span style="color:#008651;font-size:15px;font-weight: normal; ">Responsables de zona </span>
+            <br />
+            <span style="color:#9e9e9e; font-size:13px; margin-left: 0px"> 
+              <%="Supervisor: #{@dataSending['supervisors']['nomsupervisor']},
+               Gerente de zona: #{@dataSending['supervisors']['nomgerente']} "%> 
+            </span>
+
+        </div>
+        <div style="padding-top:10px;">
+            <span style="color:#008651; font-size:15px;font-weight: normal;">Usuario que ingresó la incidencia </span>
+            <br />
+            <span style="color:#9e9e9e; font-size:13px; margin-left: 0vh">
+                <%="#{@dataSending['complaint']['nomusuario']} #{@dataSending['complaint']['apusuario']} "%> 
+            </span>
+        </div>
+
+        <div style="padding-top:10px;">
+            <span style="color:#008651; font-size:15px;font-weight: normal;">Cliente </span>
+            <br />
+            <span style="color:#9e9e9e; font-size:13px; margin-left: 0vh">
+               <%="#{@dataSending['complaint']['nomcliente']} #{@dataSending['complaint']['apecliente']} "%>
+             </span>
+        </div>
+        
+        <div style="padding-top:10px;">
+            <span style="color:#008651; font-size:15px">Email del cliente </span>
+            <br />
+            <span style="color:#9e9e9e; font-size:13px; margin-left: 0vh"><%=@dataSending['complaint']['email_cliente']%> </span>
+        </div>
+        <div style="padding-top:10px;">
+            <span style="color:#008651; font-size:15px;font-weight: normal;">Telefono de contacto </span>
+            <br />
+            <span style="color:#9e9e9e; font-size:13px; margin-left: 0vh"><%=@dataSending['complaint']['telefono']%></span>
+        </div>
+        
+        
+        <div style="padding-top:10px;">
+            <span style="margin-top:10px;color:#008651;font-weight: normal; font-size:15px">Incidencia</span>
+            <br />
+            <span style="color:#9e9e9e; font-size:13px; margin-left: 0vh"><%=@dataSending['complaint']['queja']%> </span>
+
+        </div>
+    </div>
+
+</fieldset>
+
+ <div style=" width:100%;" >
+     <br />
+     <p style="font-size:13px" >Se les solicita de la manera mas atenta atender la notificación a la brevedad posible
+     <br /> Favor de no contestar a este remitente</p>
+ </div>
+         
+
+

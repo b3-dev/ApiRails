@@ -1,0 +1,91 @@
+<!--<h1>EmailSender#complaintNewNotification</h1>
+ rowPartner.nombre_asociado = data['data']['fistNamePartner']
+        rowPartner.apellido_asociado = data['data']['lastNamePartner']
+        rowPartner.celular_asociado = data['data']['phonePartner']
+        rowPartner.email_asociado =  data['data']['emailPartner']
+          time = Time.now
+        time.to_formatted_s(:db)    
+        rowIssue = Issue.new
+        data = request.raw_post
+        data_parsed = JSON.parse(data)
+        rowIssue.id_unidad = data_parsed['data']['store']
+        rowIssue.descripcion_solicitudes_asociados = data_parsed['data']['issueDescription']
+        rowIssue.fecha_registro_solicitudes_asociados  = time
+        rowIssue.id_status  = 1
+        rowIssue.id_asociado = newPartner(data_parsed)
+<p>
+  <%= @greeting %>, find me in app/views/email_sender_mailer/complaintNewNotification.html.erb
+  id_solicitudes_asociados	19
+id_asociado	3
+id_status	2
+id_unidad	2
+descripcion_solicitudes_asociados	quiero que me descuenten lo que yo quiero que me llegue aqui.
+fecha_registro_solicitudes_asociados	2019-05-22T03:18:09.000Z
+fecha_expiracion_solicitudes_asociados	2019-05-21T22:18:09.000Z
+solucion_solicitudes_asociados	haremos todo lo que sea necesario para resolverlo, lo juro!
+fecha_solicion_solicitudes_asociados	2019-05-22T12:56:14.000Z
+nombre_asociado	eduardo
+apellido_asociado	perez
+celular_asociado	3121073596
+email_asociado	lalo_page@hotmail.com
+fecha_registro_asociado	2019-05-21T22:18:09.000Z
+descripcion_status	Solucionado
+backgroundcolor_status	#00796b
+fontcolor_status	#FFF
+</p> -->
+<div style="width:100%; background-color:#DF1E39; ">
+    <img  alt="benedettis_online" src="https://online.benedettis.com/online/images/logo_aux.png">
+</div>
+<br />
+<div style='color:#000; width:100%;'>
+    <p style="font-size:18px;">Muchas gracias por comunicarte con nosotros <strong ><%=@dataSending['nombre_asociado'] %></strong></p>
+</div>
+
+<p style="font-size:17px">
+    Tu solicitud <span style="color:#008651; font-weight: bold">#<%=@dataSending['id_solicitudes_asociados'] %></span> ha sido sido atendida por nuestro personal
+    <br />
+</p>   
+
+<fieldset style="font-size:15px; color:#000; border-style:dashed; border-width: 1px; border-color:#bdbdbd; width:95%;">
+    <legend>Resumen de tu solicitud y respuesta</legend>
+
+    <div style="width:100%; margin-left: 10px">
+        <div style="padding-top:10px;">
+            <span style="color:#008651;font-size:15px;font-weight: normal; ">Fecha de la solicitud </span>
+            <br />
+            <span style="color:#9e9e9e; font-size:13px; margin-left: 0px"><%=@dataSending['fecha_registro_solicitudes_asociados'] %> </span>
+        </div>
+        <div style="padding-top:10px;">
+            <span style="color:#008651; font-size:15px;font-weight: normal;">Asociado </span>
+            <br />
+            <span style="color:#9e9e9e; font-size:13px; margin-left: 0vh"><%=@dataSending['nombre_asociado']+' '+@dataSending['apellido_asociado'] %> </span>
+        </div>
+        <div style="padding-top:10px;">
+            <span style="color:#008651; font-size:15px">Email registrado </span>
+            <br />
+            <span style="color:#9e9e9e; font-size:13px; margin-left: 0vh"><%=@dataSending['email_asociado'] %>  </span>
+        </div>
+         <div style="padding-top:10px;">
+            <span style="color:#008651; font-size:15px;font-weight: normal;">Celular registrado </span>
+            <br />
+            <span style="color:#9e9e9e; font-size:13px; margin-left: 0vh"><%=@dataSending['celular_asociado'] %></span>
+        </div>
+        <div style="padding-top:10px;">
+            <span style="margin-top:10px;color:#008651;font-weight: normal; font-size:15px">Tu solicitud</span>
+            <br />
+            <span style="color:#9e9e9e; font-size:13px; margin-left: 0vh"><%=@dataSending['descripcion_solicitudes_asociados'] %> </span>
+        </div>
+        <div style="padding-top:10px;">
+            <span style="margin-top:10px;color:#008651;font-weight: normal; font-size:15px">Respuesta </span>
+            <br />
+            <span style="color:#9e9e9e; font-size:13px; margin-left: 0vh"><%=@dataSending['solucion_solicitudes_asociados'] %> </span>
+        </div>
+    </div>
+
+</fieldset>
+
+ <div style=" width:100%;" >
+     <br />
+     <p style="font-size:13px" >Si tienes alguna duda, comunicate con tu supervisor y con gusto te ayudaremos </p>
+ </div>
+         

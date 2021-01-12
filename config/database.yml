@@ -10,7 +10,7 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  reconnect: false
+  reconnect: true
   pool: 5
   username: root
   password: borland
@@ -20,11 +20,21 @@ default: &default
 development:
   <<: *default
   database: quejas
+
 #development
 #anotherspace
 development_sec:  
    <<: *default
    database: db_unidad
+
+production:
+  <<: *default
+  database: quejas
+  
+production_sec:  
+   <<: *default
+   database: db_unidad   
+
  
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

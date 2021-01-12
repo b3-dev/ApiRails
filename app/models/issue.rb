@@ -5,6 +5,7 @@ class Issue < ActiveRecord::Base
     self.primary_key =  'id_solicitudes_asociados'
 
     belongs_to :Partner, :foreign_key => 'id_asociado'
+    belongs_to :Status, :foreign_key=>'id_status'
 
 
 end

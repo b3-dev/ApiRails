@@ -4,4 +4,5 @@ class Status < ActiveRecord::Base
     self.primary_key =  'id_status'
 
     has_many :Complaint 
+    has_many :Issue
 end
